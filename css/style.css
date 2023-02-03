@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "montserrat";
+  color: #fff;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  margin: auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  list-style-type: none;
+  margin: 1em 0;
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+}
+
+li {
+  padding: 8px 12px;
+}
+
+.choice-r:hover {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+
+.choice-p:hover {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+
+.choice-s:hover {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
