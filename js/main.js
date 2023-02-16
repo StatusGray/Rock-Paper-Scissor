@@ -1,44 +1,72 @@
-const rock = document.querySelector(".choice-r").innerHTML;
-const paper = document.querySelector(".choice-p").innerHTML;
-const scissors = document.querySelector(".choice-s").innerHTML;
+const choices = ["Rock", "Paper", "Scissors"];
 
-function getComputerChoice() {
-  const rps = [rock, paper, scissors];
-  const random = Math.floor(Math.random() * rps.length);
-  return rps[random];
+let playerSelelction = null;
+let computerSelection = null;
+
+function computerChoice() {
+  const random = Math.floor(Math.random() * choices.length);
+  computerSelection = choices[random];
 }
 
-function playRound(playerSelection, computerSelection) {
-  if (playerSelection === rock && computerSelection === rock) {
-    return "It's a tie!";
-  } else if (playerSelection === paper && computerSelection === paper) {
-    return "It's a tie!";
-  } else if (playerSelection === scissors && computerSelection === scissors) {
-    return "It's a tie!";
-  } else if (playerSelection === rock && computerSelection === scissors) {
-    return `You win! ${playerSelection} beats ${computerSelection}.`;
-  } else if (playerSelection === paper && computerSelection === rock) {
-    return `You win! ${playerSelection} beats ${computerSelection}.`;
-  } else if (playerSelection === scissors && computerSelection === paper) {
-    return `You win! ${playerSelection} beats ${computerSelection}.`;
-  } else if (playerSelection === rock && computerSelection === paper) {
-    return `You Lose! ${computerSelection} beats ${computerSelection}.`;
-  } else if (playerSelection === paper && computerSelection === scissors) {
-    return `You Lose! ${computerSelection} beats ${playerSelection}.`;
-  } else if (playerSelection === scissors && computerSelection === rock) {
-    return `You Lose! ${computerSelection} beats ${playerSelection}.`;
+const playRound = (e) => {
+  // Event object is being passed here
+  playerSelection = e.target.innerText;
+  computerChoice();
+  if (playerSelection === choices[0] && computerSelection === choices[0]) {
+    showResults("It's a tie!");
+  } else if (
+    playerSelection === choices[1] &&
+    computerSelection === choices[1]
+  ) {
+    showResults("It's a tie!");
+  } else if (
+    playerSelection === choices[2] &&
+    computerSelection === choices[2]
+  ) {
+    showResults("It's a tie!");
+  } else if (
+    playerSelection === choices[0] &&
+    computerSelection === choices[2]
+  ) {
+    showResults(`You win! ${playerSelection} beats ${computerSelection}.`);
+  } else if (
+    playerSelection === choices[1] &&
+    computerSelection === choices[0]
+  ) {
+    showResults(`You win! ${playerSelection} beats ${computerSelection}.`);
+  } else if (
+    playerSelection === choices[2] &&
+    computerSelection === choices[1]
+  ) {
+    showResults(`You win! ${playerSelection} beats ${computerSelection}.`);
+  } else if (
+    playerSelection === choices[0] &&
+    computerSelection === choices[1]
+  ) {
+    showResults(`You Lose! ${computerSelection} beats ${computerSelection}.`);
+  } else if (
+    playerSelection === choices[1] &&
+    computerSelection === choices[2]
+  ) {
+    showResults(`You Lose! ${computerSelection} beats ${playerSelection}.`);
+  } else if (
+    playerSelection === choices[2] &&
+    computerSelection === choices[0]
+  ) {
+    showResults(`You Lose! ${computerSelection} beats ${playerSelection}.`);
   }
+};
+
+function showResults(results) {
+  node = document.createElement("p");
+  node.innerText = results;
+  document.querySelector(".container").appendChild(node);
 }
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    const playerSelection = getPlayerChoice();
-    const computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
-  }
-}
-
-game();
+// activates playRound function onclick
+document.getElementById("choice-r").addEventListener("click", playRound);
+document.getElementById("choice-p").addEventListener("click", playRound);
+document.getElementById("choice-s").addEventListener("click", playRound);
 
 // const playerSelection = rock;
 // const computerSelection = getComputerChoice();

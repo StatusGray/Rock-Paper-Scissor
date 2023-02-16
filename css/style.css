@@ -35,20 +35,26 @@ li {
   border-radius: 5px;
 }
 
-.choice-r:hover {
+#choice-r:hover {
   background-color: #fff;
   color: #000;
   cursor: pointer;
 }
 
-.choice-p:hover {
+#choice-p:hover {
   background-color: #fff;
   color: #000;
   cursor: pointer;
 }
 
-.choice-s:hover {
+#choice-s:hover {
   background-color: #fff;
   color: #000;
   cursor: pointer;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
