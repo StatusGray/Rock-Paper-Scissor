@@ -57,17 +57,17 @@ const playRound = (e) => {
   }
 };
 
+// function showResults(results) {
+//   node = document.createElement("p");
+//   node.innerText = results;
+//   document.querySelector(".container").appendChild(node);
+// }
+
 function showResults(results) {
-  node = document.createElement("p");
-  node.innerText = results;
-  document.querySelector(".container").appendChild(node);
+  document.getElementById("result").innerText = results;
 }
 
 // activates playRound function onclick
 document.getElementById("choice-r").addEventListener("click", playRound);
 document.getElementById("choice-p").addEventListener("click", playRound);
 document.getElementById("choice-s").addEventListener("click", playRound);
-
-// const playerSelection = rock;
-// const computerSelection = getComputerChoice();
-// console.log(playRound(playerSelection, computerSelection));
