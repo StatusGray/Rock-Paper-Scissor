@@ -1,3 +1,9 @@
+const playerScore = document.getElementById("playerScore");
+const computerScore = document.getElementById("computerScore");
+var count = 0;
+playerScore.innerText = count;
+computerScore.innerText = count;
+
 const choices = ["Rock", "Paper", "Scissors"];
 
 let playerSelelction = null;
@@ -62,6 +68,11 @@ const playRound = (e) => {
 //   node.innerText = results;
 //   document.querySelector(".container").appendChild(node);
 // }
+
+function playerScoreIncrease() {
+  count++;
+  playerScore.innerText = count;
+}
 
 function showResults(results) {
   document.getElementById("result").innerText = results;
