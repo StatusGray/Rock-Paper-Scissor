@@ -35,31 +35,37 @@ const playRound = (e) => {
     computerSelection === choices[2]
   ) {
     showResults(`You win! ${playerSelection} beats ${computerSelection}.`);
+    playerScoreIncrease();
   } else if (
     playerSelection === choices[1] &&
     computerSelection === choices[0]
   ) {
     showResults(`You win! ${playerSelection} beats ${computerSelection}.`);
+    playerScoreIncrease();
   } else if (
     playerSelection === choices[2] &&
     computerSelection === choices[1]
   ) {
     showResults(`You win! ${playerSelection} beats ${computerSelection}.`);
+    playerScoreIncrease();
   } else if (
     playerSelection === choices[0] &&
     computerSelection === choices[1]
   ) {
     showResults(`You Lose! ${computerSelection} beats ${computerSelection}.`);
+    computerScoreIncrease();
   } else if (
     playerSelection === choices[1] &&
     computerSelection === choices[2]
   ) {
     showResults(`You Lose! ${computerSelection} beats ${playerSelection}.`);
+    computerScoreIncrease();
   } else if (
     playerSelection === choices[2] &&
     computerSelection === choices[0]
   ) {
     showResults(`You Lose! ${computerSelection} beats ${playerSelection}.`);
+    computerScoreIncrease();
   }
 };
 
@@ -72,6 +78,11 @@ const playRound = (e) => {
 function playerScoreIncrease() {
   count++;
   playerScore.innerText = count;
+}
+
+function computerScoreIncrease() {
+  count++;
+  computerScore.innerText = count;
 }
 
 function showResults(results) {
