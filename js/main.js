@@ -85,6 +85,12 @@ function computerScoreIncrease() {
   computerScore.innerText = count;
 }
 
+function resetScores() {
+  count = 0;
+  playerScore.innerText = count;
+  computerScore.innerText = count;
+}
+
 function showResults(results) {
   document.getElementById("result").innerText = results;
 }
@@ -93,3 +99,5 @@ function showResults(results) {
 document.getElementById("choice-r").addEventListener("click", playRound);
 document.getElementById("choice-p").addEventListener("click", playRound);
 document.getElementById("choice-s").addEventListener("click", playRound);
+
+document.getElementById("reset-button").addEventListener("click", resetScores);
