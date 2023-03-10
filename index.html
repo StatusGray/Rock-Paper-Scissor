@@ -13,17 +13,30 @@
   </head>
   <body>
     <div class="container">
-      <header>
-        <h1 class="title">Welcome to Rock, Paper, Scissors!</h1>
-      </header>
-      <ul class="buttons">
-        <li id="choice-r" value="Rock">Rock</li>
-        <li id="choice-p" value="Paper">Paper</li>
-        <li id="choice-s" value="Scissors">Scissors</li>
-      </ul>
-
-      <h2>The results will be below...</h2>
-      <p id="result"></p>
+      <div class="top">
+        <header>
+          <h1 class="title">Welcome to Rock, Paper, Scissors!</h1>
+        </header>
+        <ul class="buttons">
+          <li id="choice-r" value="Rock">Rock</li>
+          <li id="choice-p" value="Paper">Paper</li>
+          <li id="choice-s" value="Scissors">Scissors</li>
+        </ul>
+      </div>
+      <div class="center">
+        <h1 class="player-1">
+          Player:
+          <div id="playerScore"></div>
+        </h1>
+        <h1 class="computer">
+          Computer:
+          <div id="computerScore"></div>
+        </h1>
+      </div>
+      <div class="bottom">
+        <h2>The results will be below...</h2>
+        <p id="result"></p>
+      </div>
     </div>
     <script src="js/main.js"></script>
   </body>
