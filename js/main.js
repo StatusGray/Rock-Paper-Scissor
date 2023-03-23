@@ -21,9 +21,9 @@ const playRound = (e) => {
   rounds = rounds + 1;
   if (rounds == 5) {
     console.log("We Done");
-    document.getElementById("choice-r").disabled = true;
-    document.getElementById("choice-p").disabled = true;
-    document.getElementById("choice-s").disabled = true;
+    document.getElementById("choice-r").removeEventListener("click", playRound);
+    document.getElementById("choice-p").removeEventListener("click", playRound);
+    document.getElementById("choice-s").removeEventListener("click", playRound);
     return;
   }
   computerChoice();
