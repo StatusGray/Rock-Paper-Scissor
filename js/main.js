@@ -1,5 +1,6 @@
 const playerScore = document.getElementById("playerScore");
 const computerScore = document.getElementById("computerScore");
+var rounds = 0;
 var count = 0;
 playerScore.innerText = count;
 computerScore.innerText = count;
@@ -17,6 +18,14 @@ function computerChoice() {
 const playRound = (e) => {
   // Event object is being passed here
   playerSelection = e.target.innerText;
+  rounds = rounds + 1;
+  if (rounds == 5) {
+    console.log("We Done");
+    document.getElementById("choice-r").disabled = true;
+    document.getElementById("choice-p").disabled = true;
+    document.getElementById("choice-s").disabled = true;
+    return;
+  }
   computerChoice();
   if (playerSelection === choices[0] && computerSelection === choices[0]) {
     showResults("It's a tie!");
@@ -69,12 +78,6 @@ const playRound = (e) => {
   }
 };
 
-// function showResults(results) {
-//   node = document.createElement("p");
-//   node.innerText = results;
-//   document.querySelector(".container").appendChild(node);
-// }
-
 function playerScoreIncrease() {
   count++;
   playerScore.innerText = count;
@@ -89,6 +92,7 @@ function resetScores() {
   count = 0;
   playerScore.innerText = count;
   computerScore.innerText = count;
+  document.getElementById("result").innerText = "";
 }
 
 function showResults(results) {
