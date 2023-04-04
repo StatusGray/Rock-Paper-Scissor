@@ -1,9 +1,10 @@
 const playerScore = document.getElementById("playerScore");
 const computerScore = document.getElementById("computerScore");
 var rounds = 0;
-var count = 0;
-playerScore.innerText = count;
-computerScore.innerText = count;
+var playerCount = 0;
+var computerCount = 0;
+playerScore.innerText = playerCount;
+computerScore.innerText = computerCount;
 
 const choices = ["Rock", "Paper", "Scissors"];
 
@@ -20,7 +21,13 @@ const playRound = (e) => {
   playerSelection = e.target.innerText;
   rounds = rounds + 1;
   if (rounds == 5) {
-    console.log("We Done");
+    if (playerScore.innerText > computerScore.innerText) {
+      console.log("You Win!");
+    } else if (playerScore.innerText < computerScore.innerText) {
+      console.log("You Lose!");
+    } else {
+      console.log("It's a tie");
+    }
     document.getElementById("choice-r").removeEventListener("click", playRound);
     document.getElementById("choice-p").removeEventListener("click", playRound);
     document.getElementById("choice-s").removeEventListener("click", playRound);
@@ -79,20 +86,25 @@ const playRound = (e) => {
 };
 
 function playerScoreIncrease() {
-  count++;
-  playerScore.innerText = count;
+  playerCount++;
+  playerScore.innerText = playerCount;
 }
 
 function computerScoreIncrease() {
-  count++;
-  computerScore.innerText = count;
+  computerCount++;
+  computerScore.innerText = computerCount;
 }
 
 function resetScores() {
-  count = 0;
-  playerScore.innerText = count;
-  computerScore.innerText = count;
+  playerCount = 0;
+  computerCount = 0;
+  rounds = 0;
+  playerScore.innerText = playerCount;
+  computerScore.innerText = computerCount;
   document.getElementById("result").innerText = "";
+  document.getElementById("choice-r").addEventListener("click", playRound);
+  document.getElementById("choice-p").addEventListener("click", playRound);
+  document.getElementById("choice-s").addEventListener("click", playRound);
 }
 
 function showResults(results) {
