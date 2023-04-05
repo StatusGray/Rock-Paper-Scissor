@@ -65,18 +65,15 @@ li {
   display: inline-flex;
 }
 
-#playerScore {
+#playerScore,
+#computerScore,
+#roundNum {
   color: #fff;
   padding: 2px 0 0 10px;
 }
 
 .computer {
   display: inline-flex;
-}
-
-#computerScore {
-  color: #fff;
-  padding: 2px 0 0 10px;
 }
 
 #reset-button {
@@ -105,4 +102,10 @@ p {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+}
+
+.round {
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }

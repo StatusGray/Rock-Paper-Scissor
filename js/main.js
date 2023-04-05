@@ -1,10 +1,13 @@
 const playerScore = document.getElementById("playerScore");
 const computerScore = document.getElementById("computerScore");
+const roundNum = document.getElementById("roundNum");
 var rounds = 0;
 var playerCount = 0;
 var computerCount = 0;
+
 playerScore.innerText = playerCount;
 computerScore.innerText = computerCount;
+roundNum.innerText = rounds;
 
 const choices = ["Rock", "Paper", "Scissors"];
 
@@ -19,7 +22,6 @@ function computerChoice() {
 const playRound = (e) => {
   // Event object is being passed here
   playerSelection = e.target.innerText;
-  rounds = rounds + 1;
   if (rounds == 5) {
     if (playerScore.innerText > computerScore.innerText) {
       console.log("You Win!");
@@ -36,54 +38,68 @@ const playRound = (e) => {
   computerChoice();
   if (playerSelection === choices[0] && computerSelection === choices[0]) {
     showResults("It's a tie!");
+    roundNumIncrease();
   } else if (
     playerSelection === choices[1] &&
     computerSelection === choices[1]
   ) {
     showResults("It's a tie!");
+    roundNumIncrease();
   } else if (
     playerSelection === choices[2] &&
     computerSelection === choices[2]
   ) {
     showResults("It's a tie!");
+    roundNumIncrease();
   } else if (
     playerSelection === choices[0] &&
     computerSelection === choices[2]
   ) {
     showResults(`You win! ${playerSelection} beats ${computerSelection}.`);
     playerScoreIncrease();
+    roundNumIncrease();
   } else if (
     playerSelection === choices[1] &&
     computerSelection === choices[0]
   ) {
     showResults(`You win! ${playerSelection} beats ${computerSelection}.`);
     playerScoreIncrease();
+    roundNumIncrease();
   } else if (
     playerSelection === choices[2] &&
     computerSelection === choices[1]
   ) {
     showResults(`You win! ${playerSelection} beats ${computerSelection}.`);
     playerScoreIncrease();
+    roundNumIncrease();
   } else if (
     playerSelection === choices[0] &&
     computerSelection === choices[1]
   ) {
     showResults(`You Lose! ${computerSelection} beats ${computerSelection}.`);
     computerScoreIncrease();
+    roundNumIncrease();
   } else if (
     playerSelection === choices[1] &&
     computerSelection === choices[2]
   ) {
     showResults(`You Lose! ${computerSelection} beats ${playerSelection}.`);
     computerScoreIncrease();
+    roundNumIncrease();
   } else if (
     playerSelection === choices[2] &&
     computerSelection === choices[0]
   ) {
     showResults(`You Lose! ${computerSelection} beats ${playerSelection}.`);
     computerScoreIncrease();
+    roundNumIncrease();
   }
 };
+
+function roundNumIncrease() {
+  rounds++;
+  roundNum.innerText = rounds;
+}
 
 function playerScoreIncrease() {
   playerCount++;
@@ -99,6 +115,7 @@ function resetScores() {
   playerCount = 0;
   computerCount = 0;
   rounds = 0;
+  roundNum.innerText = rounds;
   playerScore.innerText = playerCount;
   computerScore.innerText = computerCount;
   document.getElementById("result").innerText = "";
